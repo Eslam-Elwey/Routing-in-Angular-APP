@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="nav">
+
+    @if(guardToken==='allow')
+    {
+      <ul class="ms-4 me-auto navbar text-3xl bg-gray-700 px-4 py-2 mb-4 my-3  rounded-3xl gap-5" >
+        <li class="nav-item"><a class="nav-link text-white" routerLink='/home' routerLinkActive="bg-success rounded-3xl px-4 py-3" [routerLinkActiveOptions]="{exact:true}" >Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" routerLink='/about' routerLinkActive="bg-success rounded-3xl px-4 py-3" >About</a></li>
+        <li class="nav-item"><a class="nav-link text-white" routerLink='/product' routerLinkActive="bg-success rounded-3xl px-4 py-3" >Product</a></li>
+
+      </ul>
+      <div class="out-sec">
+        <h4 class="bg-gray-700 p-3 rounded-3xl my-3 cursor-pointer" (click)="logOutfun()">Log Out</h4>
+      </div>
+    }
+    @else if(guardToken==='block') {
+      <ul class="my-3 flex justify-between mx-6 w-10/12 text-2xl ">
+        <li class="nav-item"><a class="nav-link text-white" routerLink='/login' routerLinkActive="bg-success rounded-3xl px-4 py-3" >Login</a></li>
+        <li class="nav-item"><a class="nav-link text-white" routerLink='/register' routerLinkActive="bg-success rounded-3xl px-4 py-3">Register</a></li>
+      </ul>
+
+    }
+
+
+  </div>
+</div>
+

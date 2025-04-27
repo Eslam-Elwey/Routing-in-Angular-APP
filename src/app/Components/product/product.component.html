@@ -1,0 +1,88 @@
+<h1 class="text-center my-4">Product Form</h1>
+
+<form [formGroup]="myRegForm" class="bg-gradient mb-4 p-4 w-50 m-auto" >
+  <div class="elem-data d-flex w-100 m-auto my-4 fw-medium fs-4 gap-3">
+    <label class="w-25 bg-warning text-center rounded-4" for="name">Name</label>
+    <input (blur)="hideNameValid()" (focus)="showNameValid()" #name formControlName="name" type="text" id="name" class="form-control w-75 fw-medium fs-4">
+  </div>
+
+  @if(nameValid)
+  {
+    <div class="status-val">
+      @if(name.value&&!nameStatus)
+      {
+        <h5 class="text-danger">Invalid Name : should at least consists of 3 letters</h5>
+      }
+      @else if(nameStatus) {
+        <h5 class="text-success">valid Name</h5>
+      }
+
+    </div>
+  }
+
+  <div class="elem-data d-flex w-100 m-auto my-4 fw-medium fs-4 gap-3">
+    <label class="w-25 bg-warning text-center rounded-4" for="desc">Description</label>
+    <input (blur)="hideDescrValid()" (focus)="showDescrValid()" #desc formControlName="Descr" type="text" id="desc" class="form-control w-75 fw-medium fs-4">
+  </div>
+
+  @if(descrValid)
+  {
+    <div class="status-val">
+      @if(desc.value&&!descStatus)
+      {
+        <h5 class="text-danger">Invalid Description : should at least consists of 5 letters</h5>
+      }
+      @else if(descStatus) {
+        <h5 class="text-success">valid Description</h5>
+      }
+
+    </div>
+  }
+
+  <div class="elem-data d-flex w-100 m-auto my-4 fw-medium fs-4 gap-3">
+    <label class="w-25 bg-warning text-center rounded-4" for="image">Image URL</label>
+    <input formControlName="link" type="text" id="image" class="form-control w-75 fw-medium fs-4">
+  </div>
+  <div class="elem-data d-flex w-100 m-auto my-4 fw-medium fs-4 gap-3">
+    <label class="w-25 bg-warning text-center rounded-4" for="price">Price</label>
+    <input (blur)="hidePriceValid()" (focus)="showPriceValid()" #price formControlName="price" type="number" id="price" class="form-control w-75 fw-medium fs-4">
+  </div>
+
+  @if(priceValid)
+  {
+    <div class="status-val">
+      @if(price.value&&!priceStatus)
+      {
+        <h5 class="text-danger">Invalid Price : should at least 5$</h5>
+      }
+      @else if(priceStatus) {
+        <h5 class="text-success">valid Price</h5>
+      }
+
+    </div>
+  }
+
+  <div class="elem-data d-flex w-100 m-auto my-4 fw-medium fs-4 gap-3">
+    <label class="w-25 bg-warning text-center rounded-4" for="rate">Rate</label>
+    <input (blur)="hideRateValid()" (focus)="showRateValid()" #rate formControlName="rate" type="number" id="rate" class="form-control w-75 fw-medium fs-4">
+  </div>
+
+  @if(rateValid)
+  {
+    <div class="status-val">
+      @if(rate.value&&!rateStatus)
+      {
+        <h5 class="text-danger">Invalid Rate : should between 1 & 5 </h5>
+      }
+      @else if(rateStatus) {
+        <h5 class="text-success">valid Rate</h5>
+      }
+
+    </div>
+  }
+
+  <div class="submit-btn w-50 m-auto mt-4">
+    <input (click) ="addProduct()" type="submit" value="Add Product" class="btn btn-primary fw-medium fs-4 py-2 px-4 w-100 my-2">
+    <input (click) ="clearform()" type="reset" value="Reset Data" class="btn btn-danger fw-medium fs-4 py-2 px-4 w-100 my-2">
+  </div>
+</form>

@@ -1,0 +1,33 @@
+
+<div class="container !w-8/12 !bg-amber-200 mx-auto flex justify-center items-center my-10 rounded-4xl p-4">
+  <div class="left-part !w-6/12  p-4">
+    <input (focus)="typingFun()" [(ngModel)] = "email" type="text" placeholder="email" class="form-control !mb-3 !w-10/12 mx-auto px-3 py-2 !text-[1.2rem]">
+    @if(emailStatus===false&&clicked&&email)
+    {
+      <div class="text-red-600 !text-[0.9rem] !mb-2 w-8/12 mx-auto">
+        <span>Email not existed</span>
+      </div>
+    }
+
+    <input (focus)="typingFun()" [(ngModel)] = "password" type="password" placeholder="password" class="form-control !mb-3 !w-10/12 mx-auto px-3 py-2 !text-[1.2rem]">
+
+    @if(passwordStatus===false&&clicked&&password)
+    {
+      <div class="text-red-600 !text-[0.9rem] !mb-2 w-8/12 mx-auto">
+        <span>Wrong Password</span>
+      </div>
+    }
+
+    <div class="btn-sec" class="!w-6/12 !bg mx-auto">
+      <input type="submit" (click)="loginfun()" value="Login" class="!bg-emerald-950 w-full rounded-4xl px-3 py-2 !text-[1.1rem] border-0 " >
+    </div>
+    <div class="reg-sec w-10/12 mx-auto text-pink-950 text-[1.1rem] ">
+      <p class="my-3">Not A member? <span (click)="goToRegister()" class="underline cursor-pointer underline-offset-auto">Register</span></p>
+    </div>
+  </div>
+  <div class="right-part !w-6/12 ">
+    <div class="reg-image">
+      <img src="../../../../Images/login.png" alt="register" class="w-9/12 mx-auto rounded-3xl">
+    </div>
+  </div>
+</div>
